@@ -92,20 +92,21 @@ List<Map<String, dynamic>> buatDataUser(String nama, int umur, num berat) {
   return listData;
 }
 
-  // 1. Menerima input dari user
+ // Input nama (jika kosong, diberi default 'Tanpa Nama')
   stdout.write('Masukkan nama: ');
-  String inputNama = stdin.readLineSync()!;
+  String rawNama = stdin.readLineSync() ?? '';
+  String inputNama = rawNama.isEmpty ? 'Tanpa Nama' : rawNama;
 
+  // Input umur (pakai tryParse, jika gagal/kosong default ke 0)
   stdout.write('Masukkan umur: ');
-  int inputUmur = int.parse(stdin.readLineSync()!);
+  int inputUmur = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
 
+  // Input berat (pakai tryParse, jika gagal/kosong default ke 0)
   stdout.write('Masukkan berat: ');
-  num inputBerat = num.parse(stdin.readLineSync()!);
+  num inputBerat = num.tryParse(stdin.readLineSync() ?? '') ?? 0;
 
-  // 2. Memanggil fungsi dan menyimpan hasilnya
+  // Memanggil fungsi dan print hasil
   List<Map<String, dynamic>> hasilList = buatDataUser(inputNama, inputUmur, inputBerat);
-
-  // 3. Mengambil data dari List<Map> untuk diprint
   var data = hasilList[0];
   print('nama saya ${data['nama']}, umur ${data['umur']}, berat ${data['berat']} kg');
 
