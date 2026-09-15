@@ -108,6 +108,6 @@ List<Map<String, dynamic>> buatDataUser(String nama, int umur, num berat) {
   // Memanggil fungsi dan print hasil
   List<Map<String, dynamic>> hasilList = buatDataUser(inputNama, inputUmur, inputBerat);
   var data = hasilList[0];
-  print('nama saya ${data['nama']}, umur ${data['umur']}, berat ${data['berat']} kg');
+  print('nama saya : ${data['nama']}, umur : ${data['umur']}, berat : ${data['berat']} kg');
 
 }
