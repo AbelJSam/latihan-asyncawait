@@ -62,17 +62,51 @@ void main () {
 // cetakniali(100, 80, 92)
 
 
-// Latihan di rumah
-//user input 3 jenis data
-//data 1 tipe string (nama)
-//data 2 tipe int (umur)
-//data 3 tipe num (berat)
-//fungsi yang ada pengembalian nilai List<map>
-//dalam fungsi ada nerima input 3 (String nama, int umur, num berat) .....dan mengembalikan List<map> dengan key nama, umur, berat
-//Proses dalam fungsi adalah gimana cara 3 input ini jadi map baru list.add()
-//return list<map>
-//print nama saya a, umur b, berat c kg
+/*Latihan di rumah
+user input 3 jenis data
+data 1 tipe string (nama)
+data 2 tipe int (umur)
+data 3 tipe num (berat)
+fungsi yang ada pengembalian nilai List<map>
+dalam fungsi ada nerima input 3 (String nama, int umur, num berat) .....dan mengembalikan List<map> dengan key nama, umur, berat
+Proses dalam fungsi adalah gimana cara 3 input ini jadi map baru list.add()
+return list<map>
+print nama saya a, umur b, berat c kg
+-fungsi, list, map, perubahan tipe data
 
-//funsgi, list, mapp, perubahan tipe data
-//kerjakan di file ini
+-kerjakan di file ini        --- ↓↓↓ ---        */
+// Fungsi untuk menerima 3 parameter, membuat Map, dan mengembalikannya dalam List
+List<Map<String, dynamic>> buatDataUser(String nama, int umur, num berat) {
+  List<Map<String, dynamic>> listData = [];
+
+  // Membuat map baru dari 3 input
+  Map<String, dynamic> mapData = {
+    'nama': nama,
+    'umur': umur,
+    'berat': berat,
+  };
+
+  // Menambahkan map ke dalam list
+  listData.add(mapData);
+
+  return listData;
+}
+
+  // 1. Menerima input dari user
+  stdout.write('Masukkan nama: ');
+  String inputNama = stdin.readLineSync()!;
+
+  stdout.write('Masukkan umur: ');
+  int inputUmur = int.parse(stdin.readLineSync()!);
+
+  stdout.write('Masukkan berat: ');
+  num inputBerat = num.parse(stdin.readLineSync()!);
+
+  // 2. Memanggil fungsi dan menyimpan hasilnya
+  List<Map<String, dynamic>> hasilList = buatDataUser(inputNama, inputUmur, inputBerat);
+
+  // 3. Mengambil data dari List<Map> untuk diprint
+  var data = hasilList[0];
+  print('nama saya ${data['nama']}, umur ${data['umur']}, berat ${data['berat']} kg');
+
 }
